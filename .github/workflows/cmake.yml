@@ -154,6 +154,8 @@ jobs:
     - name: Get dependencies
       run: |
         brew install pkg-config cmake sdl2 lua jpeg libpng freetype ftgl libogg glew libvorbis cppunit fribidi miniupnpc curl wxmac xquartz
+        echo $(brew --prefix curl)
+        ls /usr/local/Cellar/curl
     
     - name: Bulid MegaGlest With Clang Compiler
       if: ${{ matrix.compiler == 'clang' }}
