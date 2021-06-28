@@ -138,7 +138,29 @@ jobs:
           mk/windoze/*.exe
           mk/windoze/*.ini
           !mk/windoze/glest-dev.ini
+    
+  build-macos:
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: [x64]
+        os: [macos-latest]
+        compiler: [clang]
+    runs-on: ${{ matrix.os }}
 
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Get dependencies
+      run: |
+        brew install pkg-config cmake sdl2 lua jpeg libpng freetype ftgl libogg glew libvorbis cppunit fribidi miniupnpc curl wxmac xquartz
+    
+    - name: Bulid MegaGlest With Clang Compiler
+      if: ${{ matrix.compiler == 'clang' }}
+      env:
+        CC: clang
+        CXX: clang++
+      run: mk/macos/build-mg.sh
    # - name: Test
    #   working-directory: ${{github.workspace}}/build
       # Execute tests defined by the CMake configuration.  
