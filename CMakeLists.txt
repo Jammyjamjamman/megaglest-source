@@ -60,7 +60,7 @@ IF(CMAKE_BUILD_TYPE)
 ENDIF()
 
 MESSAGE("Compiler is this: ${CMAKE_CXX_COMPILER_ID}")
-IF ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+IF ("${CMAKE_CXX_COMPILER_ID}" MATCHES "(Apple)?Clang")
     SET(CMAKE_COMPILER_IS_GNUCXX "YES")
 #        ADD_DEFINITIONS("-Qunused-arguments -Wno-switch")
     ADD_DEFINITIONS("-Wno-switch")
