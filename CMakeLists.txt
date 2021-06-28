@@ -58,6 +58,8 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/mk/cmake/Modules)
 IF(CMAKE_BUILD_TYPE)
 	MESSAGE(STATUS "Build type for this compile will be: ${CMAKE_BUILD_TYPE}")
 ENDIF()
+
+MESSAGE("Compiler is this: ${CMAKE_CXX_COMPILER_ID}")
 IF ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
     SET(CMAKE_COMPILER_IS_GNUCXX "YES")
 #        ADD_DEFINITIONS("-Qunused-arguments -Wno-switch")
