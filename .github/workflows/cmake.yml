@@ -154,15 +154,16 @@ jobs:
     - name: Get dependencies
       run: |
         brew install pkg-config cmake sdl2 lua jpeg libpng freetype ftgl libogg glew libvorbis cppunit fribidi miniupnpc curl wxmac xquartz
-        echo $(brew --prefix curl)
-        ls /usr/local/Cellar/curl
     
     - name: Bulid MegaGlest With Clang Compiler
       if: ${{ matrix.compiler == 'clang' }}
       env:
         CC: clang
         CXX: clang++
-      run: mk/macos/build-mg.sh
+      run: |
+        # Path hack to get curl working.
+        export PATH=/usr/local/Cellar/curl/7.77.0/bin:$PATH
+        mk/macos/build-mg.sh
    # - name: Test
    #   working-directory: ${{github.workspace}}/build
       # Execute tests defined by the CMake configuration.  
