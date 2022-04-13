@@ -39,7 +39,7 @@ namespace Glest{ namespace Game{
 
 const bool debugClientInterfacePerf = false;
 
-const int ClientInterface::messageWaitTimeout					= 10000;	//10 seconds
+const int ClientInterface::messageWaitTimeout					= 1000000;	//10 seconds
 const int ClientInterface::waitSleepTime						= 10;
 const int ClientInterface::maxNetworkCommandListSendTimeWait 	= 5;
 

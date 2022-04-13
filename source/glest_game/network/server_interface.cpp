@@ -39,10 +39,10 @@ using namespace Shared::Map;
 
 namespace Glest { namespace Game {
 
-double maxFrameCountLagAllowed 								= 30;
-double maxClientLagTimeAllowed 								= 25;
-double maxFrameCountLagAllowedEver 							= 30;
-double maxClientLagTimeAllowedEver							= 25;
+double maxFrameCountLagAllowed 								= 3000;
+double maxClientLagTimeAllowed 								= 2500;
+double maxFrameCountLagAllowedEver 							= 3000;
+double maxClientLagTimeAllowedEver							= 2500;
 
 double warnFrameCountLagPercent 							= 0.50;
 double LAG_CHECK_GRACE_PERIOD 								= 15;
