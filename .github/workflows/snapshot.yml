@@ -3,8 +3,6 @@ concurrency:
   group: build-${{ github.ref }}
   cancel-in-progress: true
 on:
-  push:
-    branches: [ develop ]
   workflow_run:
     workflows: [CMake]
     types: [completed]
@@ -30,7 +28,7 @@ jobs:
       run: |
         cp mk/shared/*.ini mk/linux/
         strip -g mk/linux/megaglest mk/linux/megaglest_editor mk/linux/megaglest_g3dviewer
-    - name: Create Mega Glest Snapshot
+    - name: Create MegaGlest Snapshot
       uses: actions/upload-artifact@v2
       with:
         name: megaglest-x64-ubuntu-20.04-gcc

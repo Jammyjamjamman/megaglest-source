@@ -4,8 +4,6 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  push:
-    branches: [ develop ]
   workflow_run:
     workflows: [Make Snapshot]
     types: [completed]
@@ -19,6 +17,7 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         name: MegaGlest Snapshot
+        tag: 3.13-dev
         allowUpdates: True
         prerelease: True
         artifacts: "*"
