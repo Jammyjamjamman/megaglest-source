@@ -95,7 +95,7 @@ jobs:
         cp $7zPath .
         cd ../..
 
-    - name: Create Mega Glest Snapshot
+    - name: Create MegaGlest Snapshot
       uses: actions/upload-artifact@v2
       with:
         name: megaglest-x64-windows

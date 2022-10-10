@@ -5,6 +5,9 @@ concurrency:
 on:
   push:
     branches: [ develop ]
+  workflow_run:
+    workflows: [CMake]
+    types: [completed]
 
 # The artifact only runs on the same distro that it was built on.
 # TODO: make AppImage instead

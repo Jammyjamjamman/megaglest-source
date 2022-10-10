@@ -15,9 +15,21 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - run: echo 'The triggering workflow passed'
+    - name: Release Snapshot 
+      uses: ncipollo/release-action@v1
+      with:
+        name: MegaGlest Snapshot
+        allowUpdates: True
+        prerelease: True
+        artifacts: "*"
+        token: ${{ secrets.GITHUB_TOKEN }}
+        omitNameDuringUpdate: False
+        omitBodyDuringUpdate: False
+        replacesArtifacts: true
   on-failure:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     steps:
-      - run: echo 'The triggering workflow failed'
+    - run: |
+        echo 'Snapshot workflow failed and no prerelease was generated.'
+        exit 1
