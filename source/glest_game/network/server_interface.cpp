@@ -3223,6 +3223,7 @@ bool ServerInterface::getUnPauseForInGameConnection() {
 }
 
 ConnectionSlot * ServerInterface::findSlotForUUID(string uuid, bool unConnectedOnly) {
+	printf("Finding slot. UUID: %s, unconnected: %d \n", uuid.c_str(), (int)unConnectedOnly);
 	ConnectionSlot *result = NULL;
 	if(uuid != "") {
 		for(int slotIndex = 0; exitServer == false && slotIndex < GameConstants::maxPlayers; ++slotIndex) {
@@ -3244,6 +3245,8 @@ ConnectionSlot * ServerInterface::findSlotForUUID(string uuid, bool unConnectedO
 			}
 		}
 	}
+	printf("Slot is null: %d \n", (int)(result == NULL));
+
 	return result;
 }
 

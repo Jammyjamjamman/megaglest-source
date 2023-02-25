@@ -949,6 +949,7 @@ void ConnectionSlot::update(bool checkForNewClients,int lockedSlotIndex) {
 
 										ConnectionSlot *slot = serverInterface->findSlotForUUID(this->playerUUID,true);
 										if(slot != NULL) {
+											printf("slot is not null\n");
 											slot->setJoinGameInProgressFlags();
 											slot->setPauseForInGameConnection(true);
 
