@@ -2888,6 +2888,7 @@ bool Game::switchSetupForSlots(ServerInterface *& serverInterface,
 					//printf("switchSlot request from %d to %d\n",switchSetupRequests[i]->getCurrentSlotIndex(),switchSetupRequests[i]->getToSlotIndex());
 
 					int switchSlotIdx = switchSetupRequests[i]->getCurrentSlotIndex();
+					printf("Switching slot on request: %d to %d\n",switchSlotIdx, newSlotIdx);
 					if(serverInterface->switchSlot(switchSlotIdx,newSlotIdx)) {
 						//printf("switchSlot returned true\n");
 						switchRequested = true;

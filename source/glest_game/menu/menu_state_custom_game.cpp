@@ -2510,6 +2510,7 @@ void MenuStateCustomGame::switchSetupForSlots(SwitchSetupRequest **switchSetupRe
 
 					//printf("switchSlot request from %d to %d\n",switchSetupRequests[i]->getCurrentFactionIndex(),switchSetupRequests[i]->getToFactionIndex());
 					int switchFactionIdx = switchSetupRequests[i]->getCurrentSlotIndex();
+					printf("custom game switch: %d to %d\n",switchFactionIdx, newFactionIdx);
 					if(serverInterface->switchSlot(switchFactionIdx,newFactionIdx)) {
 						try {
 							ServerInterface* serverInterface= NetworkManager::getInstance().getServerInterface();

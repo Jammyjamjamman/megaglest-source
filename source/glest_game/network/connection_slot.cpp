@@ -963,6 +963,7 @@ void ConnectionSlot::update(bool checkForNewClients,int lockedSlotIndex) {
 									else {
 										ConnectionSlot *slot = serverInterface->findSlotForUUID(this->playerUUID,true);
 										if(slot != NULL) {
+											printf("slot is not null\n");
 											serverInterface->switchSlot(this->playerIndex,slot->getPlayerIndex());
 										}
 									}
