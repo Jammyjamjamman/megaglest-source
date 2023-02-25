@@ -2505,6 +2505,7 @@ void MenuStateCustomGame::switchSetupForSlots(SwitchSetupRequest **switchSetupRe
 			if(listBoxControls[i].getSelectedItemIndex() == ctNetwork || listBoxControls[i].getSelectedItemIndex() == ctNetworkUnassigned) {
 				if(SystemFlags::getSystemSettingType(SystemFlags::debugSystem).enabled) SystemFlags::OutputDebug(SystemFlags::debugSystem,"In [%s::%s Line: %d] switchSetupRequests[i]->getToFactionIndex() = %d\n",extractFileFromDirectoryPath(__FILE__).c_str(),__FUNCTION__,__LINE__,switchSetupRequests[i]->getToSlotIndex());
 
+				printf("switch setup val: %d\n", switchSetupRequests[i]->getToSlotIndex());
 				if(switchSetupRequests[i]->getToSlotIndex() != -1) {
 					int newFactionIdx = switchSetupRequests[i]->getToSlotIndex();
 
