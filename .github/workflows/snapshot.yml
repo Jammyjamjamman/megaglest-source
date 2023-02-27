@@ -24,3 +24,4 @@ jobs:
         name: megaglest-x64-ubuntu
         path: |
           mk/linux/MegaGlest*.AppImage
+          source/tools/glexemel/{g2xml,xml2g}
