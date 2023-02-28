@@ -26,3 +26,4 @@ jobs:
           mk/linux/MegaGlest*.AppImage
           mk/linux/g2xml
           mk/linux/xml2g
+          mk/linux/AppImageSnapshotInstructions.txt
