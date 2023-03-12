@@ -105,10 +105,14 @@ jobs:
 
     - name: Prepare Snapshot
       run: |
+        echo "VERSION=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
         cd mk\windoze
+        (Get-ChildItem -File .) | Rename-Item -NewName {$_.BaseName + "-${env.VERSION}" + $_.Extension}
         cp ..\shared\*.ini .
         $7zPath = $(Get-Command 7z).Source
         cp $7zPath .
+        Remove-Item "glest-dev.ini" -erroraction silentlycontinue
+        Compress-Archive -Path *.exe *.ini -DestinationPath megaglest-x64-windows-${env.VERSION}.zip
         cd ../..
 
     - name: Create Mega Glest Snapshot
@@ -116,10 +120,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: megaglest-x64-windows
-        path: |
-          mk/windoze/*.exe
-          mk/windoze/*.ini
-          !mk/windoze/glest-dev.ini
+        path: mk/windoze/*.zip
         retention-days: 1
   on-dockerbuild-failure:
     runs-on: ubuntu-latest
