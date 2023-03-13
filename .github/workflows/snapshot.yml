@@ -18,13 +18,11 @@ jobs:
     container: jammyjamjamman/megaglest-build-env:bionic
     steps:
     - uses: actions/checkout@v3
-    - name: Git Hash
-      run: echo "VERSION=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
-    - name: Build
-      run: mk/linux/build-appimage.sh
-    - name: Pack
+    - name: Build and Pack
       run: |
+        export VERSION=$(git rev-parse --short HEAD)
         cd mk/linux/
+        ./build-appimage.sh
         tar cfJ megaglest-x64-appimage-$VERSION.tar.xz *.AppImage g2xml xml2g
     - name: Create MegaGlest Snapshot
       uses: actions/upload-artifact@v3
