@@ -9,6 +9,7 @@ RUN apt update && apt -y upgrade && \
     cmake \
     g++ \
     gcc \
+    git \
     imagemagick \
     libbrotli-dev \
     libcppunit-dev \
